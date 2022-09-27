@@ -1,0 +1,27 @@
+### 이슈 등록
+POST http://localhost:8080/api/v1/issues
+Content-Type: application/json
+
+{
+  "summary": "변경할 이슈",
+  "description": "변경할 이슈입니다.",
+  "type": "TASK",
+  "priority": "HIGH",
+  "status": "TODO"
+}
+
+### 커멘트 등록
+POST http://localhost:8080/api/v1/issues/1/comments
+Content-Type: application/json
+
+{
+  "body":"첫번째 댓글 입니다."
+}
+
+### 이슈 조회
+GET http://localhost:8080/api/v1/issues/1
+Content-Type: application/json
+
+### 전체 이슈 조회
+GET http://localhost:8080/api/v1/issues
+Content-Type: application/json

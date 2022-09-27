@@ -43,7 +43,7 @@ class AuthUserHandlerArgumentResolver : HandlerMethodArgumentResolver {
         //더미 유저 객체
         return AuthUser(
             userId = 1,
-            userName = " 테스트 ",
+            username = " 테스트 ",
         )
     }
 
@@ -51,6 +51,6 @@ class AuthUserHandlerArgumentResolver : HandlerMethodArgumentResolver {
 
 data class AuthUser(
     val userId: Long,
-    val userName: String,
+    val username: String,
     val profileUrl: String? = null
 )
