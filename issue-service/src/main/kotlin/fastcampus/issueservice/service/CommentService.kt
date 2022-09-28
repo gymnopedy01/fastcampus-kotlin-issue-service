@@ -33,4 +33,24 @@ class CommentService(
         return commentRepository.save(comment).toResponse()
     }
 
+    @Transactional
+    fun edit(id: Long, userId: Long, request: CommentRequest): CommentResponse? {
+
+        //안전연산자를 사용해서 존재하는 경우에만
+       return commentRepository.findByIdAndUserId(id, userId)?.run{
+            body = request.body
+            commentRepository.save(this).toResponse()
+        }
+
+    }
+
+    @Transactional
+    fun delete(issueId: Long, id: Long, userId: Long) {
+        val issue = issueRepository.findByIdOrNull(issueId) ?: throw NotFoundException("이슈가 존재 하지 않습니다.")
+
+        commentRepository.findByIdAndUserId(id, userId)?.let{
+            comment -> issue.comments.remove(comment)
+        }
+    }
+
 }
