@@ -23,6 +23,10 @@ data class IssueResponse(
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     val updatedAt: LocalDateTime?,
 ) {
+    //동반객체 : 클래스내부에서 생성되는 객체
+
+    //operator invoke 이슈타입이 들어왔을때 이슈리스폰스를 만들어준다.
+
     companion object {
         operator fun invoke(issue: Issue) =
             //with를 쓰면 this를 생략할수 있게됨.
