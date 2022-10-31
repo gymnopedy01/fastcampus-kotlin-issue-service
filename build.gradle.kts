@@ -6,7 +6,7 @@ plugins {
     kotlin("jvm") version "1.6.21"
     kotlin("plugin.spring") version "1.6.21"
     kotlin("plugin.jpa") version "1.6.21"
-    kotlin("kapt") version "1.6.21"
+    kotlin("kapt") version "1.6.21" //kotlin annotation process Toolkit
 }
 
 java.sourceCompatibility = JavaVersion.VERSION_17
@@ -45,6 +45,7 @@ subprojects {
     }
 
     //이러한 설정을 해줘야 멀티모듈에서도 제대로된 의존성을 가져올수있음
+    //BOM : Bill Of Material
     dependencyManagement {
         imports {
             mavenBom(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES)

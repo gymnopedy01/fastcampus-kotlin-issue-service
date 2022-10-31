@@ -31,6 +31,8 @@ class WebConfig(
 @Component
 class AuthUserHandlerArgumentResolver : HandlerMethodArgumentResolver {
 
+    //파라미터로 들어온 AuthUser 와 AuthUserClass타입이 동일하다면 이조건은 만족하여
+    //하위에 있는 resolveArgument가 동작함
     override fun supportsParameter(parameter: MethodParameter): Boolean =
         AuthUser::class.java.isAssignableFrom(parameter.parameterType)
 
