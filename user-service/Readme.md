@@ -35,3 +35,20 @@
  - header 토큰의 타입과 서명 알고리즘 정보를 헤더에 정의. 
  - payload 페이로드에 데이터를 담을수 있음. 토큰 발급자,토큰의 유효기간 유저정보등
  - verify signature : 보안서명. 메시지가 전송과정에서 바뀌지 않았다는 것을 확인
+
+
+
+```powershell
+C:\Users\fuga>netstat -ano|find str 9090
+FIND: Parameter format not correct
+
+C:\Users\fuga>netstat -ano|findstr 9090
+  TCP    0.0.0.0:9090           0.0.0.0:0              LISTENING       9732
+  TCP    [::]:9090              [::]:0                 LISTENING       9732
+
+C:\Users\fuga>tasklist /FI "PID eq 9732"
+
+Image Name                     PID Session Name        Session#    Mem Usage
+========================= ======== ================ =========== ============
+java.exe                      9732 Console                    6     48,912 K
+```
