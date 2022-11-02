@@ -40,3 +40,21 @@ Content-Type: application/json
   "password": "1234",
   "username": "사용자"
 }
+
+### signin
+POST http://localhost:9090/api/v1/users/signin
+Content-Type: application/json
+
+{
+  "email":"dev@gmail.com",
+  "password": "1234"
+}
+
+> {% client.global.set("auth_token", response.body.token); %}
+
+
+### logout
+DELETE http://localhost:9090/api/v1/users/logout
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
