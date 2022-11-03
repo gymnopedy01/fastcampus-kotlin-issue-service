@@ -11,7 +11,7 @@ import org.springframework.r2dbc.connection.init.ResourceDatabasePopulator
 class R2DBCConfig {
     @Bean
     fun init(connectionFactory: ConnectionFactory) =
-        ConnectionFactoryInitializer().apply{
+        ConnectionFactoryInitializer().apply {
             setConnectionFactory(connectionFactory)
             setDatabasePopulator(
                 ResourceDatabasePopulator(

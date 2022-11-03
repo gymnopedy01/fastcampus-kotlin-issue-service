@@ -58,3 +58,7 @@ DELETE http://localhost:9090/api/v1/users/logout
 Content-Type: application/json
 Authorization: Bearer {{auth_token}}
 
+### me
+GET http://localhost:9090/api/v1/users/me
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}

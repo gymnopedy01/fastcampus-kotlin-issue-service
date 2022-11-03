@@ -1,9 +1,6 @@
 package com.fastcampus.userservice.controller
 
-import com.fastcampus.userservice.model.AuthToken
-import com.fastcampus.userservice.model.SignInRequest
-import com.fastcampus.userservice.model.SignInResponse
-import com.fastcampus.userservice.model.SignUpRequest
+import com.fastcampus.userservice.model.*
 import com.fastcampus.userservice.service.UserService
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
@@ -30,5 +27,13 @@ class UserController(
     @ResponseStatus(HttpStatus.NO_CONTENT)
     suspend fun logout(@AuthToken token : String) {
         userService.logout(token)
+    }
+
+    //유저 정보를 가저오기
+    @GetMapping("/me")
+    suspend fun get(
+        @AuthToken token: String
+    ) : MeResponse {
+        return MeResponse(userService.getByToken(token))
     }
 }
