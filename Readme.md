@@ -1,3 +1,7 @@
+# 폴더구조
+- issue-service
+- user-service
+
 과제
 - 담당자 assign
 - 첨부파일
